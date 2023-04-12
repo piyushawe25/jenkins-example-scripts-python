@@ -3,12 +3,20 @@ pipeline {
   stages {
     stage('version') {
       steps {
-        sh 'python3 --version'
+        script{
+                   dir("${env.WORKSPACE}") {
+								bat 'python3 --version'
+							}
+               }
       }
     }
     stage('hello') {
       steps {
-        sh 'python3 hello.py'
+        script{
+                   dir("${env.WORKSPACE}") {
+								bat 'python3 hello.py'
+							}
+               }
       }
     }
   }
